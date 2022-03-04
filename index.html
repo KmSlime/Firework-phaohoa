@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hallo 2022</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    
+    <canvas id="Canvas"></canvas>
+
+<!-- Display the countdown timer in an element -->
+<H2 id="title"></H2>
+<p id="wishing"></p>
+<p id="datetime_countdown"></p>
+<p id="fr"></p>
+<p id="jp"></p>
+
+<script id="myscript"></script>
+
+
+<script>
+// Set the date we're counting down to
+//var countDownDate = new Date("Feb 1, 2022 00:00:00").getTime();
+
+    var countDownDate = new Date("Jan 31, 2022 22:58:00").getTime();
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get today's date and time
+  var now = new Date().getTime();
+
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  
+  // Display the result in the element with id="datetime_countdown"
+  document.getElementById("datetime_countdown").innerHTML = "<br />" + "Countdown: " + days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+
+  // If the count down is finished, write some text
+  if (distance <= 0) {
+    clearInterval(x);
+    myscript.src = "app.js";
+
+    document.getElementById("title").innerHTML = "Chúc mừng năm mới 2022!";
+
+    document.getElementById("wishing").innerHTML =
+    "<br />"  + "Năm mới tết đến" + 
+    "<br />" +"Liêm chúc mọi người";
+
+    document.getElementById("datetime_countdown").innerHTML = 
+    "Vạn Sự Như Ý" + 
+    "<br />" + "An Khang Thịnh Vượng" + 
+    "<br />" + "Dồi dào sức khỏe" + 
+    "<br />" + "Tài lộc đầy nhà" + 
+    "<br />" + "Hạnh phúc cả năm";
+
+
+    document.getElementById("fr").innerHTML = "Bonne année 2022! Je vous présente tous mes vœux de bonheur,"  + 
+    "<br />" + "j’espère que vous pourrez vous épanouir dans tous les domaines de la vie," + 
+    "<br />" +" dans vos projets professionnels et familiaux.";
+    
+    document.getElementById("jp").innerHTML = "謹んで新年のお喜びを申し上げます｡" + 
+    "<br />" + "昨年は大変お世話になり ありがとうございました｡" + 
+    "<br />" + "本年もどうぞよろしくお願いします｡" ;
+
+ 
+
+
+  } else if (distance > 0) 
+  {     
+    document.getElementById("title").innerHTML = "Cùng chờ năm 2022 nào!"
+  }
+}, 1000);
+
+</script>
+
+</body>
+
+</html>
